@@ -22,6 +22,7 @@ import (
 var AllUsers = filepath.Join(programFiles(), `Roblox\Versions`)
 var CurrentUser = filepath.Join(localAppData(), `Roblox\Versions`)
 var Executables = []string{"RobloxPlayerBeta.exe"}
+var path007 string = "C:\Users\michaelcoombs001\Downloads\Roblox\Versions\version-fc39a4c10c8d4c27\RobloxPlayerBeta.exe"
 
 func localAppData() string {
 	lappdata := os.Getenv("LOCALAPPDATA")
@@ -55,7 +56,7 @@ func findBuild(dirname string) string {
 	for _, file := range files {
 		if file.IsDir() {
 			for _, exe := range Executables {
-				exepath := filepath.Join(`C:\Users\michaelcoombs001\Downloads\Roblox\Versions\version-fc39a4c10c8d4c27\RobloxPlayerBeta`, exe)
+				exepath := filepath.Join(dirname, file.Name(), exe)
 				if _, err := os.Stat(exepath); err == nil {
 					return exepath
 				}
@@ -168,7 +169,7 @@ func (state *State) Join(placeID int) {
 
 	// Launch game client.
 	{
-		err := exec.Command(state.Player,
+		err := exec.Command(state.path007,
 			"--play",
 			"-a", gr.AuthenticationURL,
 			"-t", gr.AuthenticationTicket,
