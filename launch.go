@@ -55,7 +55,7 @@ func findBuild(dirname string) string {
 	for _, file := range files {
 		if file.IsDir() {
 			for _, exe := range Executables {
-				exepath := filepath.Join(`C:\Users\michaelcoombs001\Downloads\Roblox\Versions\\RobloxPlayerBeta`, exe)
+				exepath := filepath.Join(`C:\Users\michaelcoombs001\Downloads\Roblox\Versions\version-fc39a4c10c8d4c27\RobloxPlayerBeta`, exe)
 				if _, err := os.Stat(exepath); err == nil {
 					return exepath
 				}
